@@ -7,26 +7,20 @@
 
 void batteryOperatingLimit(float temperature) 
 {
-  if (temperature > HIGH_COOLING_THRESHOLD) 
-  {
-    printf("High Cooling Mode: Temperature is very high (%.2f°C). Aggressive cooling required!\n", temperature);
-  } 
-  else if (temperature > COOLING_THRESHOLD) 
-  {
-    printf("Cooling Mode: Temperature is high (%.2f°C). Cooling system activated.\n", temperature);
-  } 
-  else if (temperature < HEATING_THRESHOLD) 
-  {
-    printf("Heating Mode: Temperature is low (%.2f°C). Heating system activated.\n", temperature);
-  } 
-  else 
-  {
-    printf("No Action Needed\n");
-  }
+    // Use the ternary operator to determine the appropriate message
+    printf("%s\n",
+        (temperature > HIGH_COOLING_THRESHOLD) ? 
+            "High Cooling Mode: Temperature is very high. Aggressive cooling required!" :
+        (temperature > COOLING_THRESHOLD) ? 
+            "Cooling Mode: Temperature is high. Cooling system activated." :
+        (temperature < HEATING_THRESHOLD) ? 
+            "Heating Mode: Temperature is low. Heating system activated." :
+            "No Action Needed"
+    );
 }
 
 int main()
 {
-  batteryOperatingLimit(27);  // Test with a temperature value
-  return 0;  // Indicate successful execution
+    batteryOperatingLimit(27);  // Test with a temperature value
+    return 0;  // Indicate successful execution
 }
