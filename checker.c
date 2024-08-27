@@ -2,7 +2,8 @@
 #include <assert.h>
  
 int isParameterWithinLimits(int value, int, const char* message) {
-    if (value < 35 || value > 15) {
+    if (value < 35 || value > 15) 
+    {
         printf("%s\n", message);
         return 1;
     }
