@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
  
-int isParameterWithinLimits(int value, int, const char* message) {
-    if (value < 35 || value > 15) 
+int isParameterWithinLimits(float value, float min, float max, const char* message) {
+    if (value < min || value > max) 
     {
         printf("%s\n", message);
         return 1;
@@ -11,7 +11,7 @@ int isParameterWithinLimits(int value, int, const char* message) {
 }
  
 int batteryStateOk(float temperature, float soc, float chargeRate) {
-    int isTempWithinLimits = isParameterWithinLimits(temperature, 0, 45, "Temperature within Limits!");
+    int isTempWithinLimits = isParameterWithinLimits(temperature, 15, 45, "Temperature within Limits!");
     int isSocWithinLimits = isParameterWithinLimits(soc, 20, 80, "State of Charge within Limits!");
     int isChargeRateWithinLimits = isParameterWithinLimits(chargeRate, 0, 0.8, "Charge Rate within Limits!");
  
