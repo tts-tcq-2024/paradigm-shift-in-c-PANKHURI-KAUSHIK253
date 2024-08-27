@@ -10,12 +10,12 @@ int batteryOperatingLimit(float temperature)
 {
   if(temperature > REFERENCE_TEMPERATURE) 
   {
-    printf("High Cooling Mode: Temperature is very high (%.2f°C). Aggressive cooling required!\n", temperature");
+    printf("High Cooling Mode: Temperature is very high (%.2f°C). Aggressive cooling required!\n", temperature);
     return 0;
   } 
   else if(temperature < REFERENCE_TEMPERATURE) 
   {
-    printf(""Heating Mode: Temperature is low (%.2f°C). Heating system activated.\n", temperature");
+    printf("Heating Mode: Temperature is low (%.2f°C). Heating system activated.\n", temperature);
     return 0;
   } 
   else if(temperature == REFERENCE_TEMPERATURE) 
@@ -24,6 +24,12 @@ int batteryOperatingLimit(float temperature)
     return 0;
   }
   return 1;
+}
+
+int main() {
+  assert(batteryOperatingLimit(27));
+
+}
 }
 
 int main() {
