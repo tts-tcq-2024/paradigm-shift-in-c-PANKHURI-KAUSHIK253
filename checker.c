@@ -11,9 +11,9 @@ int isParameterWithinLimits(int value, int, const char* message) {
 }
  
 int batteryStateOk(float temperature, float soc, float chargeRate) {
-    int isTempWithinLimits = isParameterOutOfRange(temperature, 0, 45, "Temperature within Limits!");
-    int isSocWithinLimits = isParameterOutOfRange(soc, 20, 80, "State of Charge within Limits!");
-    int isChargeRateWithinLimits = isParameterOutOfRange(chargeRate, 0, 0.8, "Charge Rate within Limits!");
+    int isTempWithinLimits = isParameterWithinLimits(temperature, 0, 45, "Temperature within Limits!");
+    int isSocWithinLimits = isParameterWithinLimits(soc, 20, 80, "State of Charge within Limits!");
+    int isChargeRateWithinLimits = isParameterWithinLimits(chargeRate, 0, 0.8, "Charge Rate within Limits!");
  
     return !(isTempWithinLimits || isSocWithinLimits || isChargeRateWithinLimits);
 }
