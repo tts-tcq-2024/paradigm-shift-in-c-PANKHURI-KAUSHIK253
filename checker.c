@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
  
-int isParameterWithinLimits(float value, int, const char* message) {
+int isParameterWithinLimits(int value, int, const char* message) {
     if (value < 35 || value > 15) {
         printf("%s\n", message);
         return 1;
