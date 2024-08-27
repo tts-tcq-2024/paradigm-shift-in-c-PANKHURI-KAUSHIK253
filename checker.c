@@ -1,13 +1,35 @@
-#include <stdio.h>
+// Define the baseline temperature (for demonstration purposes)
+#define BASELINE_TEMPERATURE 25       // Example baseline temperature (in °C)
 
+// Function prototypes
+float getTemperature();
+void manageThermal(float temperature);
 
-#define COOLING_THRESHOLD 30          // Temperature threshold for cooling mode (in °C)
-#define HEATING_THRESHOLD 5           // Temperature threshold for heating mode (in °C)
-#define HIGH_COOLING_THRESHOLD 40     // Temperature increase threshold for high cooling mode (in °C)
-#define REFERENCE_TEMPERATURE 25
-int batteryOperatingLimit(float temperature ) {
-  if (temperature > COOLING_THRESHOLD) {
-        if (temperature > (REFERENCE_TEMPERATURE + HIGH_COOLING_THRESHOLD)) {
+int main() {
+    while (1) {
+        // Simulate getting the current temperature
+        float temperature = getTemperature();
+        
+        // Manage thermal conditions based on the temperature
+        manageThermal(temperature);
+        
+        // Simulated delay for the next check (could be replaced with actual timing code)
+        for (volatile int i = 0; i < 1000000; ++i);  // Simple delay loop
+    }
+    return 0;
+}
+
+// Simulated function to get the current temperature (replace with actual sensor reading)
+float getTemperature() {
+    return 50.0;  // Example temperature value for demonstration
+}
+
+// Function to manage thermal conditions based on temperature
+void manageThermal(float temperature) {
+    static float previousTemperature = BASELINE_TEMPERATURE;
+
+    if (temperature > COOLING_THRESHOLD) {
+        if (temperature > (BASELINE_TEMPERATURE + HIGH_COOLING_THRESHOLD)) {
             printf("High Cooling Mode: Temperature is very high (%.2f°C). Aggressive cooling required!\n", temperature);
         } else {
             printf("Cooling Mode: Temperature is high (%.2f°C). Cooling system activated.\n", temperature);
@@ -17,3 +39,7 @@ int batteryOperatingLimit(float temperature ) {
     } else {
         printf("Temperature is normal (%.2f°C). No special action required.\n", temperature);
     }
+    
+    // Update previous temperature for next comparison
+    previousTemperature = temperature;
+}
