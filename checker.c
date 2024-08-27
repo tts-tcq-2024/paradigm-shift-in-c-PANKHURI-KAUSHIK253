@@ -30,22 +30,4 @@ int main() {
   assert(batteryOperatingLimit(27));
 
 }
-}
 
-int main() {
-  assert(batteryOperatingLimit(27));
-
-}
-        printf("Temperature is normal (%.2f°C). No special action required.\n", temperature);
-	}
-}
-
-int main ()
-{
-   batteryOperatingLimit(25); 
-}
-
-  {
-        printf("Temperature is normal (%.2f°C). No special action required.\n", temperature);
-  }
-}
