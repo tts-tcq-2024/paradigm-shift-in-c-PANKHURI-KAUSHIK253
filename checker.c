@@ -1,21 +1,19 @@
 #include <stdio.h>
-#include <assert.h>
 
-int batteryIsOk(float temperature, float soc, float chargeRate) {
-  if(temperature1 < 0 || temperature2 > 45) {
-    printf("Temperature out of range!\n");
-    return 0;
-  } else if(soc < 20 || soc > 80) {
-    printf("State of Charge out of range!\n");
-    return 0;
-  } else if(chargeRate > 0.8) {
-    printf("Charge Rate out of range!\n");
-    return 0;
-  }
-  return 1;
-}
 
-int main() {
-  assert(batteryIsOk(25, 70, 0.7));
-  assert(!batteryIsOk(50, 85, 0));
-}
+#define COOLING_THRESHOLD 30          // Temperature threshold for cooling mode (in °C)
+#define HEATING_THRESHOLD 5           // Temperature threshold for heating mode (in °C)
+#define HIGH_COOLING_THRESHOLD 40     // Temperature increase threshold for high cooling mode (in °C)
+
+int batteryOperatingLimit(float temperature ) {
+  if (temperature > COOLING_THRESHOLD) {
+        if (temperature > (BASELINE_TEMPERATURE + HIGH_COOLING_THRESHOLD)) {
+            printf("High Cooling Mode: Temperature is very high (%.2f°C). Aggressive cooling required!\n", temperature);
+        } else {
+            printf("Cooling Mode: Temperature is high (%.2f°C). Cooling system activated.\n", temperature);
+        }
+    } else if (temperature < HEATING_THRESHOLD) {
+        printf("Heating Mode: Temperature is low (%.2f°C). Heating system activated.\n", temperature);
+    } else {
+        printf("Temperature is normal (%.2f°C). No special action required.\n", temperature);
+    }
