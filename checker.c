@@ -22,4 +22,3 @@ int main() {
     assert(!batteryIsOk(50, 85, 0));
 }
  
- 
