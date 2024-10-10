@@ -18,7 +18,6 @@ void checkAndPrintWarning(float value, ParameterConfig config, const char* warni
         }
     }
 }
-
 int isParameterOutOfRange(float value, float min, float max, const char* message) {
     if (value < min || value > max) {
         printf("%s\n", message);
@@ -26,7 +25,6 @@ int isParameterOutOfRange(float value, float min, float max, const char* message
     }
     return 0;
 }
-
 int batteryIsOk(float temperature, float soc, float chargeRate, ParameterConfig tempConfig, ParameterConfig socConfig, ParameterConfig chargeRateConfig) {
     checkAndPrintWarning(temperature, tempConfig, "Temperature out of range!");
     checkAndPrintWarning(soc, socConfig, "State of Charge out of range!");
