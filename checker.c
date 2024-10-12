@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <assert.h>
-
 typedef struct {
     int warningEnabled;  // 1 for enabled, 0 for disabled
     float min;
     float max;
     float warningTolerance;  // Tolerance value for warnings
 } ParameterConfig;
-
 void checkAndPrintWarning(float value, ParameterConfig config, const char* warningMessage) {
     if (config.warningEnabled) {
         // Check for warning conditions
@@ -36,7 +34,6 @@ int batteryIsOk(float temperature, float soc, float chargeRate, ParameterConfig 
 
     return !(isTempOutOfRange || isSocOutOfRange || isChargeRateOutOfRange);
 }
-
 int main() {
     ParameterConfig temperatureConfig = {1, 0, 45, 0}; // Warning enabled, no tolerance for temperature
     ParameterConfig socConfig = {1, 20, 80, 4};       // Warning enabled, 5% tolerance for SOC
@@ -44,6 +41,5 @@ int main() {
 
     assert(batteryIsOk(25, 70, 0.7, temperatureConfig, socConfig, chargeRateConfig));
     assert(!batteryIsOk(50, 85, 0, temperatureConfig, socConfig, chargeRateConfig));
-
     return 0;
 }
