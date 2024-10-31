@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <main.h>
 typedef struct {
     int warningEnabled;  // 1 for enabled, 0 for disabled
     float min;
