@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "main.h"
+#include "parameter_config.h"
 void checkAndPrintWarning(float value, ParameterConfig config, const char* warningMessage) {
     if (config.warningEnabled) {
         // Check for warning conditions
