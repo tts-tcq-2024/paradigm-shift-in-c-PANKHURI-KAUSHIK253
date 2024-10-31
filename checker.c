@@ -1,12 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include "main.h"
-typedef struct {
-    int warningEnabled;  // 1 for enabled, 0 for disabled
-    float min;
-    float max;
-    float warningTolerance;  // Tolerance value for warnings
-} ParameterConfig;
 void checkAndPrintWarning(float value, ParameterConfig config, const char* warningMessage) {
     if (config.warningEnabled) {
         // Check for warning conditions
