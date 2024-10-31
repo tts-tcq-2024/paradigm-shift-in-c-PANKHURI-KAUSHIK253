@@ -1,3 +1,9 @@
+typedef struct {
+    int warningEnabled;  // 1 for enabled, 0 for disabled
+    float min;
+    float max;
+    float warningTolerance;  // Tolerance value for warnings
+} ParameterConfig;
 int main() 
 {
     ParameterConfig temperatureConfig = {1, 0, 45, 0}; // Warning enabled, no tolerance for temperature
